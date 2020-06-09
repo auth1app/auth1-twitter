@@ -1,18 +1,15 @@
-# Twitter for Node.js
+# Auth1 Twitter for Node.js
 
-An asynchronous client library for the Twitter [REST](https://dev.twitter.com/rest/public) and [Streaming](https://dev.twitter.com/streaming/overview) API's.
+An asynchronous client library for the Auth1 Twitter Proxy
 
-[![Build Status](https://travis-ci.org/desmondmorris/node-twitter.svg?branch=master)](https://travis-ci.org/desmondmorris/node-twitter)
- [![NPM](https://nodei.co/npm/twitter.png?mini=true)](https://nodei.co/npm/twitter/)
 
 ```javascript
-var Twitter = require('twitter');
+var Twitter = require('auth1-twitter');
 
 var client = new Twitter({
-  consumer_key: '',
-  consumer_secret: '',
-  access_token_key: '',
-  access_token_secret: ''
+  client_id: '',
+  client_secret: '',
+  rest_base: 'your auth1 twitter api endpoint'
 });
 
 var params = {screen_name: 'nodejs'};

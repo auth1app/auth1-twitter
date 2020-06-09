@@ -16,6 +16,9 @@ describe('Twitter', function() {
         access_token_key: null,
         access_token_secret: null,
         bearer_token: null,
+        client_id: null,
+        client_secret: null,
+        auth1_token_rest_base: 'https://auth.owenyoung.com/api/v1',
         rest_base: 'https://api.twitter.com/1.1',
         stream_base: 'https://stream.twitter.com/1.1',
         user_stream_base: 'https://userstream.twitter.com/1.1',
@@ -85,7 +88,7 @@ describe('Twitter', function() {
       assert(client.hasOwnProperty('request'));
 
       nock('http://node.twitter').get('/').reply(200);
-      client.request.get('http://node.twitter/', function(error, response) {
+      client.request('http://node.twitter/', function(error, response) {
 
         var headers = response.request.headers;
 
@@ -110,7 +113,7 @@ describe('Twitter', function() {
         'access_token_secret':'ff4a53caff3c88d04b73cd1156c1f7ac',
       });
       nock('http://node.twitter').get('/').reply(200);
-      client.request.get('http://node.twitter/', function(error, response) {
+      client.request('http://node.twitter/', function(error, response) {
         var authorizationHeader = response.request.headers.Authorization;
         assert(authorizationHeader.indexOf('oauth_consumer_key="6c84cbd30cf9350a990bad2bcc1bec5f"' >= 0));
         assert(authorizationHeader.indexOf('oauth_token="a78bd9b40919c2a676a464419e238477"' >= 0));
